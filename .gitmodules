@@ -1,0 +1,4 @@
+[submodule "libs/FPS_Calculator"]
+	path = libs/FPS_Calculator
+	url = git@github.com:imessam/FPS_Calculator.git
+	branch = main

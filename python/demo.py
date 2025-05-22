@@ -5,20 +5,26 @@ base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 if base_path not in sys.path:
     sys.path.insert(0, base_path)
 
-# from libs.another_module.python.modules import *
 
-from python.modules.xplane_communicator import IInterface
-from modules.class_implemented_derived import ClassImplementedDerived
+from modules.xplane_communicator import XPlaneCommunicator
 
 def main():
 
-    class_implemented_derived = ClassImplementedDerived()
-
-    if class_implemented_derived.start() != IInterface.STATUS.OK_STARTED:
+    xplane_communicator = XPlaneCommunicator()
+    
+    if xplane_communicator.connect() != XPlaneCommunicator.RETURN_STATUS.OK_CONNECTED:
         return 1
     
-    if class_implemented_derived.stop() != IInterface.STATUS.OK_STOPPED:
-        return 1
+    xplane_communicator.start_receiving_loop()
+
+    input_char = ""
+
+    while input_char != "q":
+        input_char = input("Press 'q' to quit: ")
+    
+    xplane_communicator.stop_receiving_loop()
+    
+    xplane_communicator.disconnect()
     
     return 0
 
