@@ -1,4 +1,4 @@
-from modules.i_interface_name import IInterface
+from python.modules.xplane_communicator import IInterface
 from modules.class_implemented_derived import ClassImplementedDerived
 
 import pytest

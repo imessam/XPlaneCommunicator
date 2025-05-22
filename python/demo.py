@@ -7,7 +7,7 @@ if base_path not in sys.path:
 
 # from libs.another_module.python.modules import *
 
-from modules.i_interface_name import IInterface
+from python.modules.xplane_communicator import IInterface
 from modules.class_implemented_derived import ClassImplementedDerived
 
 def main():
