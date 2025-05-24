@@ -16,11 +16,15 @@ def main():
         return 1
     
     xplane_communicator.start_receiving_loop()
+    
+    xplane_communicator.start_parsing_loop()
 
     input_char = ""
 
     while input_char != "q":
         input_char = input("Press 'q' to quit: ")
+
+    xplane_communicator.stop_parsing_loop()
     
     xplane_communicator.stop_receiving_loop()
     
